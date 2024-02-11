@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    font-weight: bold;
+    padding: 0;
+    color: #231f20;
+}
+
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form{
+    color: #231f20;
+    background-color: #fcd6b5;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    justify-content: space-around;
+    width: 100%;
+    animation: slideIn 1s ease-in-out;
+}
+.containerr{
+   align-items: center;
+   margin-left: 190px;
+   width: 75%;
+}
+
+#progressContainer {
+  width: 80%;
+  margin: 20px;
+margin-left: 73px;
+}
+
+#progressBar {
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.t-Header-logo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 19px;
+}
+.section{
+    width: 80%;
+    margin: auto;
+}
+.section{
+    display:flex ;
+    flex-wrap: wrap;
+}
+legend{
+    font-weight: bolder;
+    color: #231f20;
+    font-size: 34px;
+}
+fieldset {
+    margin: 10px;
+    width: 45%;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    padding: 12px;
+    color: #231f20;
+    background-color: #fac08e;
+    display: block;
+}
+
+input{
+    padding: 2px;
+    box-sizing: border-box;
+    margin: 12px;
+}
+
+
+.personRow {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+
+#petQuestions {
+    display: none;
+    margin: 9px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    margin: 12px;
+    margin-left: 440px;
+    text-align: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/countries@2.0.2/data.json"></script>
+    <script src="java.js"></script>
+    <title>ABS Questioneir</title>
+</head>
+<body>
+    <form id="myForm" target="_self">
+
+        <div class="t-Header-logo">
+            <a href="data:image/png;base64,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"
+             >
+             <img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAABtCAMAAACsqg5FAAAAZlBMVEX39/cAAAD////4+Pj7+/v5+fmOjo7x8fH09PRwcHB7e3vAwMAXFxfX19fn5+fFxcWvr6/R0dE3NzcsLCzg4OCjo6OamppnZ2e5ublMTEwREREmJiaDg4MxMTEfHx/Ly8tYWFhCQkIGMXICAAAM6ElEQVRoge2a62KrqhKA5S4SEA0gGhPN+7/kmcGkTXvaXLpX1/6zWavRKPIJDHMjFf1x4VX184d//CjnFasqwf8yV1QVUxWWv8TlWHCMOc3LdsSLv84tfWSsqr0ZfJtgtCmFAWfid7nYQZha+MyDjMPCob/YZ1G9Bn6VWwmblhZ6qZakG5l5meJFBvFaSy9z+UJIhkPX6KYZGgsCVs+EzC8K2Otcuyfa4fBmfbYo11UV0l/gdoSQ3onaeWujYts4Exjw3+RC65kc9NBRe57PzTig8mD1cOr4b8oVDK/ak1Uo7qJ1Af6V7rZkdYwJLM8u5Je4vBJuJGTskhz6OUJJ+KcHonFdC87Zpkf+LBewtIHZ3TeGUmfxEn644UQG/BJyJ0DQngK/wIWuuIFg6UMzjqmRUGbZGEnIFNO53GpgIT/T5vNcVlGztb2XITeDMl5a1Y/JRHJTjgt9pseFW7cpRZ/kveJr7qet6dh289p7o3yIPWlM3t2CDx0Nd1vCkoBbS/JEGZW/njqfTsO65k5mWEuTybr/pub3paLV+gwWdOOlt/1BtzKez8n7kNLYN3mRH0aapPphk7uKD09hZ2q3kyMPJCWqB9V6n9VEfA4zTdNtZWoPD7kLHhrzqChuticMVUTKsK5tTCkbCSsYuMxcwXhUdLnX1opc7K7nDwvjeWu348yYlIPyvuKhCc5L5HJnB7Ijswld0o7da6pqkAuyuKpiVe4X7t+4yket57OMLs99H2OWsLYFTEQ8jgJdHnavIVYXLjQl79b7yO1BLwhjz3Am9aBhKaw5el7aI20m7mFbN9wnurtxJzKA5ePGerC9cd2nQJoh6ALj3SFYov40l8JamT2ZOTqwUaU+xB1ZzWyjbYqzR/VMu1/gQm2+TDiVIE+xjaEFvRFz46XD57ntA++ml7j367JiVkNPBlhLicI3xrpFtcnPMfkwt4CFGnKl/MX+3pc/5Zxr5YFMLfWkgS9OgfGLwcPlxesABpI615FFOQ/6DwS6Uv+cK+xV6fUpXnTbCGYkrYMejtMIZ/CtKB9UGakUe2fmnuQyZa+l697Pynl3Ob3cyB1+XeBb/c/7WxXdk10JjFSiS7JtlzufZhe9py6JMDsqO2oWrELbjvK7cvqC3uA02g4jlHB2iwZrPYQw+HpOEqS4DiOlQ8sS+FiMd34J4Q/pK476WHbQXTNEO7jOzTMdDJ3NUPkhh1HVQ+vimdfOzV3M90b5FS6r2wVsfWtD28Y6wRJaWirbKnbSZhODbJ20JqQuG9NkSx+19vQ4s8rrZFNqY7e0wQTbqqRqpYIMsJqiM6brDLhbWXofwwMt9JJd4MLErgMXLnlp5iX6Vlrt9WybIM0ijfRpAWucfSseKb/X7FHd2TCbVvpGNhkC3zTIIXobfY4ATODN5mC1cXeX0A+4YF99aLX1re/azsICMlInmE2wEUvIEKIFmal1/GFDL3IxzreVaX2bQZ5U3Wa9yjlEaxo7d2kxmYVaPNHSy1zoM6t5LZRQNUQjnfZWAYiHWjm4AbefauQH3MuD2//alTAM34a90sCPuTf8Hz32T7mf2yt5HsYfKoNvuILzh89+1ZzK3nBRd49k6xuucMuyuDsiwr9eKiLsyY6CW9z/TE8KjNLk989y87XeF+AI7SGWINOPuMJhbLeimwQTht3esgfFCoviJZMac7HbHyvpOxyCjcvBPvH32qUK2yrc5/KFTCMhW0autVANjBDEHTVGYYEKmiBEahfuDEzk4h2nXfZ+oezCBWeDV1A7Y+3ShmJQ48ZIfc2lmpzyHl1bvuynBpzJRHaGhmFXPCyl4bibjuDh9ZjX6MKAod9pVrxwaX86U96OJ4wcI2i4nnRYY+/5XS5TOzJSiLBqxtuJaODCfBsBVc9rD5HtBM7bcX9GL37EaMmNpEdKunBP2GkIWc9jiR3tHmKMEzxzsvweF6ORSCWGX7dctZLdokIbincJ7htyofut4ssSXD6QsXIX7pGy2sDFhC8DXNLYdpu577nlmqOOkIHechmmj8C3EwzD9JqL0l+F4WkNjmR7Jof6nVtx9EE9PC6QC+51xFj3DhfrHVL0mIGkN1za4Sz2vhYCuCDsJVrC6DPozaW+5dL24nIX7olWD7nX4Bpj8QuXzcDlAoUIBu6Wm4BLjzCVWvYfuA5d+2bebdz9E1wKce3x3J9hDTcMuAMEPiNywTG28wSjUMZZiAsXJWhk1H0cZ5jZhtKFPM1FpXAOUJYz2TkY2ykUATI1LEZs/ehA1klHHb9wO9AxFBbVB67EOeDz89ztTTH8g4f8e4LJKOg0DsJc0y3ZpTYuYzi1IBMfuCVDvdsd3rj8Ppepq7zjcuqpxSnt40RyvUnPGmCiy1mdNiWObwpvANXrcALVTKFJSktt05BBYPKJllp357eu6jdLBJqj7oytOFwFLdi2oDXhJldw9p6I4XAjcA5VmAtOiAAfrOpAt3JWF9egZlvL9/TVu8dSzlgxxeWa4FezvF2srjXFZi5wz06IywfjbxexHcZuPaE/7W98V8AZrKuH9gi3v0r5ic/xVeFOjuuc38Ffc5lKA5YmV49d8CcKU0XI9CM7yNRbntT+CTBqwH7WN8HaHa6e0Q40uOVXVlXZSIGRLylAVjZAN2fiOiF825ilbylCcb1DMxo4+nB+CxeM4ILOTmi0x1fWTQcfkS/D6HhtmnH0GAgpo9fzapTgXkOPmJNabquGhzSOQ4Yl5QCyNkk9kufCtRR1jq7go6kZReUFemqF1T+p6rK1AdFC2uajUZhTWzh6OqcC4Jf889nV/aX2U9wmyTOZMv3IBQ9n2qOe1AvqU8G749zmM77mhXsme+yvcKBh+wFNPp9xv0nL5/q7dQPTb7dccsyqGAeYupkcLS9bc8VB+cjlLfgNFQXdfbDU4BbBbWb4DhedKHLyn/oL7TO+gAOltR4xe8d9g2dgID5yUR1H0MoDIvONan5ifuGVj+ET14BUmzfHoFVor/r9F9y5sLbnXuFiygj6YS/c4YYLzsCYS1HQq7Ut7tvGhfl+76+n6BK/yq1UN5HJghVbHa3IO1dYlFlcmzVdy8xJ5M5lkcJUv82vVpxNuIf1CndoULgGFcB70n684VYcjkPOfp6xO02LbkBCf+KUcFm9y/MQ8YPzV7il7AOv5m313XDZdU9KowiQkoVNGI6hJB7Iqd5S/ludU3iBmxosEu0Co2ldh+TmZgGV1GCKEuxtboZ1aGAZLXrVkSadOQ/Nuuqu1fOmr2jQ67om/BnAovXyBPeidC92kHHlFBWbfr4qWU7xIo65QM/98psO5263cDjD7HjJ/39Qzt9zPxX2VfhenIhiGW4rfqz+5YOPuLhNz+9maYT6ykyyKjzcA7vD5S7Oc1YVK+H155vFdaqOp/k2sBdbUD6f1kc7V99zxaaUdjNlKi+fwNxmMOIM3NmR/v9VEPYf52NL8LgtFVAFIxXXNEMRNQhlPMaFcUBP++pmgqMf4arodCwr+HJZXPMNT3FBCzSOLnOgYD7PwTqQGbssSwf+M0ZEKVjFLTrKzC7t0ilOwVxIuFq5EGqMEqG2VYwHuL24J+VZYAoDTA/E7Wib+oOkTmPoQGbFMyiRw7FfKDlAiOxBoZFpcBBPkVN/6pQ+nZ2gEq39rqEWVR0ZF/EUF1XMfqlhyfrdlXsm5xF8CFmv05ULARn0/TCO4AxAzLlxB4jnSuxyPBAPBmsax/17qP+gvwFfV3cgVWYCXyU4xjsI9vMJrIRCE+BCzZEbS5DUttyBSZAuKOCeHJhD4kMXnZ0wSLX5497dHXkuAdkhMo5PolwJCJLqMGIWQJJNrpBr8Lcc4GhVeAZyJQrXFHsABczKpK34tA19b/3WcSx2pnDRwMjp4p8VLipG5G6RagMasnCLUTk59Fz5VUBheu2zehLUIHX445crFy3/pOf9Zy5zZRN8rT5zE98ImMhBT+w5rsPcHx3x9xBlnNHP2lfUvY8zF4WLdiAe8ULhgpdyHWdYYhxXL0Vy81R/4TpuPi0gvjRMEH47C078maIUbVxJrSvyvGRONy+qxaudK1zM/RgufHZebWmODyny77kwa6f9rvQAU3w7zUDOxp6UvEqLXvTk6SbP+3HcgUOEIzLtia+Ri0mKab8n0k6HMyyjp+w+lnguzgIEF9RvnnQ5yASNiu33LZmift5+4nD0sOJK2iOjixl4vbksPmz6Nrnn1hGrnDXRBMwqCBt9BwrRZmNrZW0NsgP3rBLWBq6wHhyhXr3EDHoyYBWhwhJ9UDUerP20z3JnHaFA8M1u3yh4EJVLShkvob5nYKcver+kFthmDvH65dt2fJb7q+U/7n/c3+HO/w4XI6H99rsg9hcLB6VP1sJVf7OUjbGM3LP+i6XsN611Rf6Fcgj03+Cugf5d7nQAYz2aGsLc/wFVlPa8turbCAAAAABJRU5ErkJggg=="
+              alt="Home" class="apex-logo-img" /></a>
+              <h1 style="margin-left: 40px;  color: #231f20;">ABS Census Questionner</h1>
+          </div>
+          
+          <div id="progressContainer">
+            <div id="progressBar">
+                <div id="progress"></div>
+            </div>
+        </div>
+          <fieldset class="containerr" >
+            <legend style="  color: #231f20;">Address of the Census Dwelling</legend>
+            <label>Name: <input title="Enter name" style="margin-left: 110px; margin-right: 22px;" type="text" name="Name" 
+                required>
+                Email: <input title="Enter email like abc@gmal.com" style="margin-left: 119px;" type="text" name="emil" required></label>
+                <label style="padding: 12px;">
+                Apartment Number: <input title="Enter apartment number" style="margin-left: 20px; margin-right: 20px;" type="text" name="apartmentNumber" required>
+                Street Number: <input title="Enter street number" style="margin-left: 50px;" type="text" name="streetNumber" required></label>
+                <label>State: <input title="Enter state" style="margin-left: 119px; margin-right: 20px;" type="text" name="state" required>  
+                    City: <input title="Enter city" style="margin-left: 130px; " type="text" name="city" required></label>
+          </fieldset>
+        
+        <div class="section form-container ">
+            
+        <fieldset  id="personForm"   > 
+            <legend>People in Dwelling</legend>
+            <label for="field1">How many people spent the census night at the dwelling?</label>
+            <input oninput="updateProgress()"  title="enter number of person" type="number" id="field1" name="field1" min="1" required>
+            <div id="peopleDetails"></div>
+    </fieldset>
+
+    <fieldset >
+        <legend>The Animals</legend>
+        <label for="field2">Do you have any pet?</label>
+        <input oninput="updateProgress()" id="field2" type="radio" name="petOption" value="yes" onclick="showPetQuestions()"> Yes
+        <input oninput="updateProgress()"   type="radio" name="petOption" value="no" onclick="hidePetQuestions()"> No
+        <div id="petQuestions">
+            <label for="petType">What is the type of animal? </label>
+            <select id="countryCode" style="margin: 12px;">
+                <option value="1">Dogs</option>
+                <option value="2">Cats</option>
+                <option value="3">Fish</option>
+                <option value="4">birds</option>
+                <option value="5">Small Rodents (Hamsters, Guinea Pigs, Mice, Rats)</option>
+                <option value="6">Reptiles (Turtles, Snakes, Lizards)</option>
+                <option value="7">Rabbits</option>
+                <option value="9">Ferrets</option>
+                <option value="8">Exotic Pets (Hedgehogs, Sugar Gliders, etc.)</option>
+                
+              </select>
+            <label for="field4">Color of pet:</label>
+            <input oninput="updateProgress()" id="field4 petColor" type="text"  name="petColor">
+            <label for="field5">	How many of this type of animal are present?</label>
+            <input oninput="updateProgress()" id="field5 petColor"  type="text"  name="petColor">
+            <label for="vaccinated">Vaccinated:</label>
+            <select style="margin: 12px; padding: 12px;" id="vaccinated" name="vaccinated">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+    </fieldset>
+
+        <fieldset  >
+            <legend>The Dwelling</legend>
+            
+            <label>Type of Dwelling?<br>
+                <select id="countryCode1" style="margin: 12px;">
+                    <option value="1">Detached House</option>
+                    <option value="2">Semi-Detached House</option>
+                    <option value="3">Apartment</option>
+                    <option value="4">Retirement village</option>
+                    <option value="5">Houseboat</option>
+                    <option value="6">Caravan</option>
+                    <option value="7">Tent</option>
+                    <option value="9">Boat</option>
+                    <option value="8">Other</option>
+                    <!-- Add more options for other countries as needed -->
+                  </select>
+                </label>
+            <label for="field6">Is this dwelling ?<br><br>
+                <input oninput="updateProgress()" id="fiel6" type="radio" name="foundHelpUseful" value="Yes" required>
+                Owned outright
+                  <input oninput="updateProgress()"   type="radio" name="foundHelpUseful" value="No" required>Owned with Mortgage
+                  <input oninput="updateProgress()"   type="radio" name="foundHelpUseful" value="No" required> Rented
+                  <input oninput="updateProgress()"  type="radio" name="foundHelpUseful" value="No" required>Rent-free
+                </label>
+            <label for="field10">Sources of energy for the dwelling?<br><br>
+                <input oninput="updateProgress()" id="field10" type="radio" name="participateInSurvey" value="Yes" required> Mains electricity
+                <input oninput="updateProgress()" id="field11"  type="radio" name="participateInSurvey" value="No" required> 	Photovoltaic Panels
+                <input oninput="updateProgress()" id="field12"  type="radio" name="participateInSurvey" value="Yes" required>Battery 
+                <input  oninput="updateProgress()" id="field13" type="radio" name="participateInSurvey" value="No" required> Gas
+                <input oninput="updateProgress()" id="field14"  type="radio" name="participateInSurvey" value="Yes" required> No power Source</label>
+            <label for="fiel15">Internet Access for the dwelling?<br>
+                 <input oninput="updateProgress()" id="field15"  type="radio" name="completedOnOwn" value="Yes" required>	Fiber to the house
+              <input oninput="updateProgress()" id="field16" type="radio" name="completedOnOwn" value="No" required> Fiber to the curb
+             <input oninput="updateProgress()" id="field17" type="radio" name="completedOnOwn" value="Yes" required>Fiber to the node 
+          <input oninput="updateProgress()" id="field18" type="radio" name="completedOnOwn" value="No" required> ADSL
+          <input oninput="updateProgress()" id="field19" type="radio" name="completedOnOwn" value="No" required> Mobile network
+         <input oninput="updateProgress()" id="field20" type="radio" name="completedOnOwn" value="Yes" required>No internet </label>
+
+             <label for="field21">Are there any electric vehicles garaged at the dwelling?<br>
+                <input oninput="updateProgress()" id="field21" type="radio" name="petOption" value="yes" onclick="showcarQuestions()"> Yes
+                <input oninput="updateProgress()" id="field22" type="radio" name="petOption" value="no" onclick="hidecarQuestions()"> No
+                <div id="carQuestions">
+                    <label for="petType">What types:</label>
+                    <select id="countryCode" style="margin: 12px;">
+                        <option value="1">Cars</option>
+                        <option value="2">Hybrid-car</option>
+                        <option value="3">SUV</option>
+                        <option value="4">Hybrid-SUV</option>
+                        <option value="5">Truck</option>
+                        <option value="6">Hybrid-truck</option>
+                        <option value="7">Scooter</option>
+                        <option value="9">Motorcycle</option>
+                        <!-- Add more options for other countries as needed -->
+                      </select>
+        </fieldset>
+
+                <fieldset >
+                    <legend>Rating the Questionnaire</legend>
+                    
+                    <label for="field23">For possible follow-up questions please supply a contact?<br><BR>
+                         <input oninput="updateProgress()" id="field23" type="radio" name="prefersOnlineCensus" value="Yes" required> 
+                         phone number  <input oninput="updateProgress()" id="field24" type="radio" name="prefersOnlineCensus" value="No" required>
+                          EmaIl address</label>
+                    <label for="field25">How difficult was this questionnaire to navigate? <br><br> 
+                        <input oninput="updateProgress()" id="field25" type="radio" name="foundHelpUseful" value="Yes" required>
+                         Very Hard
+                          <input oninput="updateProgress()" id="field26"  type="radio" name="foundHelpUseful" value="No" required> Slow
+                          <input oninput="updateProgress()" id="field27" type="radio" name="foundHelpUseful" value="No" required> Ok
+                          <input oninput="updateProgress()" id="field28" type="radio" name="foundHelpUseful" value="No" required> Easy
+                          <input oninput="updateProgress()" id="field29"type="radio" name="foundHelpUseful" value="No" required> Very easy</label>
+                    <label for="field30">Where the input requirements of each question easy to follow? <br><br>
+                        <input oninput="updateProgress()" id="field30"  type="radio" name="participateInSurvey" value="Yes" required> Very confusing
+                        <input oninput="updateProgress()" id="field31"type="radio" name="participateInSurvey" value="No" required> Ok
+                        <input oninput="updateProgress()" id="field32" type="radio" name="participateInSurvey" value="Yes" required> Confusing
+                        <input oninput="updateProgress()" id="field33" type="radio" name="participateInSurvey" value="No" required> clear
+                        <input oninput="updateProgress()" id="field34" type="radio" name="participateInSurvey" value="Yes" required> Very clear</label>
+                    <label for="field35">Did you need to use the Help? ?<br><br>
+                         <input oninput="updateProgress()" id="field35"  type="radio" name="completedOnOwn" value="Yes" required>Often
+                      <input oninput="updateProgress()" id="field36" type="radio" name="completedOnOwn" value="No" required> Very often
+                     <input oninput="updateProgress()" id="field37" type="radio" name="completedOnOwn" value="Yes" required>Occasionally
+                  <input oninput="updateProgress()" id="field38" type="radio" name="completedOnOwn" value="No" required> Never</label>
+                     <label>Did you find the help useful? ? <br><br>
+                        <input oninput="updateProgress()" id="field39" type="radio" name="completed" value="Yes" required>
+                        Yes <input oninput="updateProgress()" id="field40" type="radio" name="completed" value="No" required> No</label>
+                    <label>Did not use it Any other comments you would like to make?<br>
+                        <textarea title="write you comment" id="message" name="message" placeholder="Your comment"></textarea>
+                    
+                    </label>
+                </fieldset>
+
+        </div>
+
+        
+          
+    
+            <button type="submit" id="btn" value="submit" onclick="myFunction()">Submit</button>
+        </div>
+
+
+    </form>
+   
+        <script>
+            
+  function submitCensusForm() {
+    var numPeople = document.getElementById('numPeople').value;
+
+    for (var i = 1; i <= numPeople; i++) {
+        var givenName = document.getElementById(`givenName_${i}`).value;
+        var familyName = document.getElementById(`familyName_${i}`).value;
+        var gender = document.getElementById(`gender_${i}`).value;
+        var dob = document.getElementById(`dob_${i}`).value;
+        var countryOfBirth = document.getElementById(`countryOfBirth_${i}`).value;
+        var yearOfArrival = document.getElementById(`yearOfArrival_${i}`).value;
+        var isAustralianCitizen = document.getElementById(`isAustralianCitizen_${i}`).checked ? 'Yes' : 'No';
+        var speakOtherLanguage = document.getElementById(`speakOtherLanguage_${i}`).value;
+        var englishProficiency = document.getElementById(`englishProficiency_${i}`).value;
+        var highestSchoolYear = document.getElementById(`highestSchoolYear_${i}`).value;
+        var highestQualification = document.getElementById(`highestQualification_${i}`).value;
+        var fieldOfStudy = document.getElementById(`fieldOfStudy_${i}`).value;
+
+        console.log(`
+            Person ${i}:
+            Given Name: ${givenName},
+            Family Name: ${familyName},
+            Gender: ${gender},
+            Date of Birth: ${dob},
+            Country of Birth: ${countryOfBirth},
+            Year of Arrival in Australia: ${yearOfArrival},
+            Australian Citizen: ${isAustralianCitizen},
+            Speak Language Other Than English: ${speakOtherLanguage},
+            English Proficiency: ${englishProficiency},
+            Highest Year of Secondary School: ${highestSchoolYear},
+            Highest Qualification: ${highestQualification},
+            Field of Study: ${fieldOfStudy}
+        `);
+    }
+
+    // You can also submit the form data to a server using AJAX if needed
+
+    // Reset the form for a better user experience
+    document.getElementById('censusForm').reset();
+    document.getElementById('peopleDetails').innerHTML = '';
+}
+
+document.getElementById('field1').addEventListener('input', function () {
+    var field1 = parseInt(this.value);
+    var peopleDetailsDiv = document.getElementById('peopleDetails');
+    peopleDetailsDiv.innerHTML = '';
+
+    for (var i = 1; i <= field1; i++) {
+        var personDiv = document.createElement('div');
+        personDiv.innerHTML = `
+            <hr>
+            <h3>Person ${i}</h3>
+
+            <label for="givenName_${i}">Given Name:</label>
+            <input type="text" id="givenName_${i}" name="givenName_${i}" placeholder="Enter Given Name" required>
+
+            <label for="familyName_${i}">Family Name:</label>
+            <input type="text" id="familyName_${i}" name="familyName_${i}" placeholder="Enter Family Name" required>
+
+            <label for="gender_${i}">Gender:</label>
+            <select id="gender_${i}" name="gender_${i}" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="dob_${i}">Date of Birth:</label>
+            <input type="date" id="dob_${i}" name="dob_${i}" required>
+
+            <label for="countryOfBirth_${i}">Country of Birth:</label>
+            <select id="countryOfBirth_${i}" name="countryOfBirth_${i}" required>
+                <option value="Australia">Australia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Philippines">Philippines</option>
+            </select>
+
+            <label for="yearOfArrival_${i}">In what year did you arrive in Australia?</label>
+            <input type="number" id="yearOfArrival_${i}" name="yearOfArrival_${i}" required>
+
+            <label for="isAustralianCitizen_${i}">Are you an Australian Citizen?</label>
+            <input type="checkbox" id="isAustralianCitizen_${i}" name="isAustralianCitizen_${i}">
+
+            <label for="speakOtherLanguage_${i}">Do you speak a Language other than English?</label>
+            <select id="speakOtherLanguage_${i}" name="speakOtherLanguage_${i}" required>
+                <option value="English Only">English Only</option>
+                <option value="Mandarin">Mandarin</option>
+                <option value="Italian">Italian</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Cantonese">Cantonese</option>
+                <option value="Greek">Greek</option>
+            </select>
+
+            <label for="englishProficiency_${i}">How well do you speak English?</label>
+            <select id="englishProficiency_${i}" name="englishProficiency_${i}" required>
+                <option value="Very Well">Very Well</option>
+                <option value="Well">Well</option>
+                <option value="Not Well">Not Well</option>
+                <option value="Not at All">Not at All</option>
+            </select>
+
+            <label for="highestSchoolYear_${i}">What is the highest year of secondary school the person has completed?</label>
+            <select id="highestSchoolYear_${i}" name="highestSchoolYear_${i}" required>
+                <option value="Year 7">Year 7</option>
+                <option value="Year 8">Year 8</option>
+                <!-- Add more options as needed -->
+                <option value="Did not go to high school">Did not go to high school</option>
+            </select>
+
+            <label for="highestQualification_${i}">What is the highest qualification you have received?</label>
+            <select id="highestQualification_${i}" name="highestQualification_${i}" required>
+                <option value="Trade Certificate">Trade Certificate</option>
+                <option value="Cert. I">Cert. I</option>
+                <option value="Cert. II">Cert. II</option>
+                <option value="Cert. III">Cert. III</option>
+                <option value="Cert. IV">Cert. IV</option>
+                <option value="Bachelor Degree">Bachelor Degree</option>
+                <option value="Associate Diploma">Associate Diploma</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Masters">Masters</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <label for="fieldOfStudy_${i}">What is the main field of study of your Highest Qualification?</label>
+            <input type="text" id="fieldOfStudy_${i}" name="fieldOfStudy_${i}" placeholder="Enter Field of Study" required>
+        `;
+        peopleDetailsDiv.appendChild(personDiv);
+    }
+});
+</script>
+<script>
+function updateProgress() {
+      var progress = calculateProgress();
+      document.getElementById('progress').style.width = progress + '%';
+    }
+
+    function calculateProgress() {
+      var totalFields = 4; // Change this if you have a different number of fields
+      var filledFields = 0;
+
+      for (var i = 1; i <= totalFields; i++) {
+        var field = document.getElementById('field' + i);
+        if (field.value.trim() !== '') {
+          filledFields++;
+        }
+      }
+
+      return (filledFields / totalFields) * 100;
+    }
+
+    // Initialize progress on page load
+    updateProgress();
+    
+        </script>
+    
+     
+            
+        
+    
+</body>
+</html>
